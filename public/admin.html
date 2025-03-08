@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Code Storage Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <h1>Admin - Code Storage Hub</h1>
+        <div>
+            <button id="dark-mode-toggle">Toggle Dark Mode</button>
+            <a href="/" class="admin-link">Back to Public</a>
+        </div>
+    </header>
+    <main>
+        <section id="admin-auth" style="display: none;">
+            <h2>Admin Login</h2>
+            <input type="password" id="admin-password" placeholder="Enter admin password">
+            <button onclick="loginAdmin()">Login</button>
+        </section>
+        <section id="admin-panel" style="display: none;">
+            <h2>Admin Panel</h2>
+            <div id="add-code">
+                <h3>Add Code</h3>
+                <input type="text" id="new-language" placeholder="Folder name (e.g., javascript)">
+                <input type="text" id="code-title" placeholder="Code snippet name (required)" required>
+                <textarea id="code-input" placeholder="Paste your code here..."></textarea>
+                <button onclick="addCode()">Add Code</button>
+            </div>
+            <div id="manage-codes">
+                <h3>Manage Codes</h3>
+                <select id="language-select" onchange="loadAdminCodes(this.value)">
+                    <option value="">Select Folder</option>
+                </select>
+                <div id="code-list"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-html.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        loadAdminPage();
+    </script>
+</body>
+</html>
